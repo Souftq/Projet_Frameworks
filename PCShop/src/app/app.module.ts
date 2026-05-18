@@ -25,14 +25,16 @@ import { MenuComponent } from './menu/menu.component';
     TitresComponent,
     AccueilComponent,
     HeaderComponent,
-    FooterComponent,
     ChoicesAssistedComponent,
     ProductInfoComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [
     provideClientHydration(withEventReplay())

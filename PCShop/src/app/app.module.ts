@@ -8,6 +8,12 @@ import { ImageCliquableComponent } from './image-cliquable/image-cliquable.compo
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { IndicateursPrixComponent } from './indicateurs-prix/indicateurs-prix.component';
 import { TitresComponent } from './titres/titres.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ChoicesAssistedComponent } from './choices-assisted/choices-assisted.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { TitresComponent } from './titres/titres.component';
     ImageCliquableComponent,
     DropDownComponent,
     IndicateursPrixComponent,
-    TitresComponent
+    TitresComponent,
+    AccueilComponent,
+    HeaderComponent,
+    FooterComponent,
+    ChoicesAssistedComponent,
+    ProductInfoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

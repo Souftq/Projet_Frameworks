@@ -1,1 +1,23 @@
-<p>choices-assisted works!</p>
+<section class="assistee">
+
+    <app-titres texte="Configuration Assistée"></app-titres>
+
+    <ng-container *ngFor="let question of questions">
+        <div class="question" *ngIf="estVisible(question)">
+            <app-titres [texte]="question.titre"></app-titres>
+            <div class="options">
+                <app-button
+                    *ngFor="let option of question.options"
+                    [label]="option"
+                    [selected]="estSelectionne(question.cle, option)"
+                    (clicked)="selectionner(question.cle, option)">
+                </app-button>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="valider">
+        <app-button label="Valider" [primary]="true" (clicked)="valider()"></app-button>
+    </div>
+
+</section>

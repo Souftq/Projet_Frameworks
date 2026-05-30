@@ -1,1 +1,71 @@
-<p>product-info works!</p>
+<section class="produit" *ngIf="pc; else introuvable">
+
+    <div class="haut">
+
+        <div class="galerie">
+            <div class="image-principale">
+                <img *ngIf="images[imageActive]" [src]="images[imageActive]" [alt]="nom">
+                <div *ngIf="!images[imageActive]" class="image-placeholder"></div>
+            </div>
+            <div class="vignettes">
+                <button type="button" class="point"
+                    *ngFor="let img of images; let i = index"
+                    [class.actif]="i === imageActive"
+                    (click)="choisirImage(i)"
+                    aria-label="Voir l'image"></button>
+            </div>
+        </div>
+
+        <div class="achat">
+            <app-titres [texte]="nom"></app-titres>
+
+            <app-indicateurs-prix [prix]="pc.prix"></app-indicateurs-prix>
+
+            <app-button label="Ajouter au panier" [primary]="true" [block]="true"
+                (clicked)="ajouterAuPanier()"></app-button>
+
+            <div class="dispo">
+                <h4>Disponibilité en magasin</h4>
+                <div class="dispo-ligne" *ngFor="let d of disponibilites">
+                    <mat-icon [class.ok]="d.disponible" [class.ko]="!d.disponible">
+                        {{ d.disponible ? 'check_circle' : 'cancel' }}
+                    </mat-icon>
+                    <span>{{ d.magasin }}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="details">
+        <app-titres texte="Description"></app-titres>
+        <p class="description">{{ description }}</p>
+
+        <app-titres texte="Composants"></app-titres>
+        <ul class="composants">
+            <li *ngFor="let c of composants">
+                <span class="label">{{ c.label }}</span>
+                <span class="valeur">{{ c.valeur }}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="similaires" *ngIf="similaires.length">
+        <app-titres texte="Articles similaires"></app-titres>
+        <div class="grille">
+            <app-image-cliquable
+                *ngFor="let s of similaires"
+                [titre]="s.marque + ' ' + s.nom"
+                (clicked)="ouvrirSimilaire(s)">
+            </app-image-cliquable>
+        </div>
+    </div>
+
+</section>
+
+<ng-template #introuvable>
+    <section class="produit">
+        <app-titres texte="Produit introuvable"></app-titres>
+        <p class="introuvable-msg">Cet article n'existe pas. <a routerLink="/manual">Retour au catalogue</a></p>
+    </section>
+</ng-template>

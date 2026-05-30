@@ -1,0 +1,45 @@
+<section class="paiement">
+
+    <ng-container *ngIf="!confirme; else succes">
+
+        <app-titres texte="Paiement"></app-titres>
+
+        <div class="contenu" *ngIf="cart.lignes.length > 0; else vide">
+
+            <div class="recap">
+                <h4>Récapitulatif de la commande</h4>
+                <div class="ligne" *ngFor="let ligne of cart.lignes">
+                    <span>{{ ligne.pc.marque }} {{ ligne.pc.nom }} × {{ ligne.quantite }}</span>
+                    <span>{{ ligne.pc.prix * ligne.quantite }} €</span>
+                </div>
+                <div class="ligne total">
+                    <span>Total à payer</span>
+                    <span>{{ cart.total }} €</span>
+                </div>
+            </div>
+
+            <div class="moyens">
+                <span class="moyen" *ngFor="let moyen of moyensPaiement">{{ moyen }}</span>
+            </div>
+
+            <app-button label="Confirmer la commande" [primary]="true" [block]="true"
+                (clicked)="confirmer()"></app-button>
+
+        </div>
+
+        <ng-template #vide>
+            <p class="message">Votre panier est vide. <a routerLink="/manual">Voir le catalogue</a></p>
+        </ng-template>
+
+    </ng-container>
+
+    <ng-template #succes>
+        <div class="succes-bloc">
+            <mat-icon class="icone-succes">check_circle</mat-icon>
+            <app-titres texte="Commande confirmée !"></app-titres>
+            <p class="message">Merci pour votre achat. Un montant de <strong>{{ totalPaye }} €</strong> a été réglé.</p>
+            <app-button label="Retour à l'accueil" [primary]="true" (clicked)="retourAccueil()"></app-button>
+        </div>
+    </ng-template>
+
+</section>

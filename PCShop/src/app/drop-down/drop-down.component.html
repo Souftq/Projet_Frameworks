@@ -1,1 +1,16 @@
-<p>drop-down works!</p>
+<div class="drop-down">
+
+    <button type="button" class="entete" (click)="basculer()">
+        <span>{{ titre }}</span>
+        <mat-icon>{{ ouvert ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+
+    <div class="options" *ngIf="ouvert">
+        <label class="option" *ngFor="let option of options">
+            <input #cb type="checkbox" [checked]="estCoche(option)"
+                (change)="basculerOption(option, cb.checked)">
+            {{ option }}
+        </label>
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+<aside class="cart-total">
+
+    <app-titres texte="Total"></app-titres>
+    <p class="prix-total">{{ total }} €</p>
+
+    <app-button label="Payer" [primary]="true" (clicked)="payer()"></app-button>
+
+    <div class="moyens">
+        <span class="moyen" *ngFor="let moyen of moyensPaiement">{{ moyen }}</span>
+    </div>
+
+</aside>

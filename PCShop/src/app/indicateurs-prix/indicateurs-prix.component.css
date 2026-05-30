@@ -1,0 +1,27 @@
+.prix-indicateur {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.actuel {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.ancien {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+}
+
+.badge {
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-danger);
+    border-radius: var(--radius-sm);
+}

@@ -1,1 +1,10 @@
-<p>indicateurs-prix works!</p>
+<div class="prix-indicateur">
+
+    <span class="actuel">{{ (enPromo ? prixPromo : prix) }} €</span>
+
+    <ng-container *ngIf="enPromo">
+        <span class="ancien">{{ prix }} €</span>
+        <span class="badge">-{{ reduction }}%</span>
+    </ng-container>
+
+</div>

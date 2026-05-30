@@ -1,0 +1,35 @@
+<section class="register">
+
+    <form class="carte"
+        (submit)="sInscrire(nom.value, email.value, mdp.value, confirmation.value); $event.preventDefault()">
+
+        <app-titres texte="Créer un compte"></app-titres>
+
+        <label class="champ">
+            <span>Nom complet</span>
+            <input #nom type="text" placeholder="Jean Dupont" required>
+        </label>
+
+        <label class="champ">
+            <span>Email</span>
+            <input #email type="email" placeholder="vous@exemple.com" required>
+        </label>
+
+        <label class="champ">
+            <span>Mot de passe</span>
+            <input #mdp type="password" placeholder="••••••••" required>
+        </label>
+
+        <label class="champ">
+            <span>Confirmer le mot de passe</span>
+            <input #confirmation type="password" placeholder="••••••••" required>
+        </label>
+
+        <app-button label="Créer mon compte" [primary]="true" [block]="true"
+            (clicked)="sInscrire(nom.value, email.value, mdp.value, confirmation.value)"></app-button>
+
+        <p class="connexion">Déjà un compte ? <a routerLink="/login">Se connecter</a></p>
+
+    </form>
+
+</section>

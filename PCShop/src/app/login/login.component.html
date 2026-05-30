@@ -1,0 +1,26 @@
+<section class="login">
+
+    <form class="carte" (submit)="seConnecter(email.value, mdp.value); $event.preventDefault()">
+
+        <app-titres texte="Connexion"></app-titres>
+
+        <label class="champ">
+            <span>Email</span>
+            <input #email type="email" placeholder="vous@exemple.com" required>
+        </label>
+
+        <label class="champ">
+            <span>Mot de passe</span>
+            <input #mdp type="password" placeholder="••••••••" required>
+        </label>
+
+        <a class="oublie" href="#">Mot de passe oublié ?</a>
+
+        <app-button label="Se connecter" [primary]="true" [block]="true"
+            (clicked)="seConnecter(email.value, mdp.value)"></app-button>
+
+        <p class="inscription">Pas encore de compte ? <a routerLink="/register">Créer un compte</a></p>
+
+    </form>
+
+</section>

@@ -1,1 +1,30 @@
-<p>header works!</p>
+<header class="header">
+
+    <div class="header-gauche">
+        <div class="menu-wrap">
+            <button type="button" class="icone-btn" (click)="basculerMenu()" aria-label="Menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <app-menu *ngIf="menuOuvert" class="menu-deroulant"></app-menu>
+        </div>
+        <a routerLink="" class="logo">PC SHOP</a>
+    </div>
+
+    <form class="recherche" (submit)="rechercher(champ.value); $event.preventDefault()">
+        <input #champ type="search" placeholder="Rechercher un PC...">
+        <button type="submit" class="icone-btn" aria-label="Rechercher">
+            <mat-icon>search</mat-icon>
+        </button>
+    </form>
+
+    <div class="header-droite">
+        <a routerLink="/login" class="icone-btn" aria-label="Compte">
+            <mat-icon>person</mat-icon>
+        </a>
+        <a routerLink="/cart" class="icone-btn panier-btn" aria-label="Panier">
+            <mat-icon>shopping_cart</mat-icon>
+            <span class="badge-panier" *ngIf="cart.nombreArticles > 0">{{ cart.nombreArticles }}</span>
+        </a>
+    </div>
+
+</header>

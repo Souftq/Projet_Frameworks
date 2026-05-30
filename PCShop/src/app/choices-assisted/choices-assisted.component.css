@@ -1,0 +1,26 @@
+.assistee {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.question {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 8px 16px 18px;
+    margin-bottom: 16px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.valider {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}

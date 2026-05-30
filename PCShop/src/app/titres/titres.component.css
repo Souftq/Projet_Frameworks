@@ -1,0 +1,6 @@
+.titre {
+    text-align: center;
+    margin: 24px 0 14px;
+    color: var(--color-text);
+    font-weight: 600;
+}

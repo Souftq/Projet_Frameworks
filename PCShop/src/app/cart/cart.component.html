@@ -1,0 +1,33 @@
+<section class="panier">
+
+    <div class="liste">
+        <app-titres texte="Articles dans le panier"></app-titres>
+
+        <p class="vide" *ngIf="cart.lignes.length === 0">Votre panier est vide.</p>
+
+        <div class="article" *ngFor="let ligne of cart.lignes">
+            <div class="article-placeholder"></div>
+
+            <span class="nom">{{ ligne.pc.marque }} {{ ligne.pc.nom }}</span>
+
+            <div class="quantite">
+                <button type="button" (click)="cart.diminuer(ligne)" aria-label="Diminuer">
+                    <mat-icon>remove</mat-icon>
+                </button>
+                <span>{{ ligne.quantite }}</span>
+                <button type="button" (click)="cart.augmenter(ligne)" aria-label="Augmenter">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+
+            <button type="button" class="supprimer" (click)="cart.supprimer(ligne)" aria-label="Supprimer">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+            <span class="prix">{{ ligne.pc.prix * ligne.quantite }} €</span>
+        </div>
+    </div>
+
+    <app-cart-total [total]="cart.total"></app-cart-total>
+
+</section>

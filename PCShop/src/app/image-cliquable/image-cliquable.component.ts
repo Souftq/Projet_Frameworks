@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-image-cliquable',
@@ -9,4 +9,6 @@ import { Component,Input } from '@angular/core';
 export class ImageCliquableComponent {
   @Input() imageSrc: string = '';
   @Input() titre: string = '';
+  @Input() icone: string = '';
+  @Output() clicked = new EventEmitter<void>();
 }

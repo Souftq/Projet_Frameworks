@@ -1,1 +1,24 @@
-<p>accueil works!</p>
+<section class="accueil">
+
+    <div class="config">
+        <app-titres texte="Type De Configuration"></app-titres>
+        <div class="config-boutons">
+            <app-button label="Manuelle" (clicked)="choisirConfiguration('manuelle')"></app-button>
+            <app-button label="Assistée" (clicked)="choisirConfiguration('assistee')"></app-button>
+        </div>
+    </div>
+
+    <div class="top-ventes">
+        <app-titres texte="Top Ventes"></app-titres>
+        <div class="categories">
+            <app-image-cliquable
+                *ngFor="let categorie of categories"
+                [titre]="categorie.titre"
+                [imageSrc]="categorie.imageSrc"
+                [icone]="categorie.icone"
+                (clicked)="ouvrirCategorie(categorie)">
+            </app-image-cliquable>
+        </div>
+    </div>
+
+</section>

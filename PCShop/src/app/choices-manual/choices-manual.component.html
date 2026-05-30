@@ -1,0 +1,38 @@
+<section class="manuelle">
+
+    <aside class="filtres">
+        <app-titres texte="Filtres"></app-titres>
+        <app-drop-down
+            *ngFor="let groupe of groupes"
+            [titre]="groupe.titre"
+            [options]="groupe.options"
+            (selectionChange)="majSelection(groupe.cle, $event)">
+        </app-drop-down>
+    </aside>
+
+    <div class="articles">
+        <app-titres texte="Articles filtrés"></app-titres>
+
+        <div class="reco" *ngIf="tri.actif">
+            <span><mat-icon>auto_awesome</mat-icon> Résultats classés par pertinence</span>
+            <button type="button" (click)="effacerRecommandation()">Réinitialiser</button>
+        </div>
+
+        <p class="compteur">
+            {{ pcsFiltres.length }} ordinateur(s)<span *ngIf="recherche"> pour « {{ recherche }} »</span>
+        </p>
+
+        <div class="grille">
+            <article class="article-carte" *ngFor="let pc of pcsFiltres" (click)="ouvrirPc(pc)">
+                <div class="article-image"></div>
+                <span class="badge-type">{{ pc.type }}</span>
+                <h4>{{ pc.marque }} {{ pc.nom }}</h4>
+                <p class="specs">{{ pc.system.cpu.marque }} {{ pc.system.cpu.nom }} · {{ pc.system.ram }} Go</p>
+                <app-indicateurs-prix [prix]="pc.prix"></app-indicateurs-prix>
+            </article>
+        </div>
+
+        <p class="vide" *ngIf="pcsFiltres.length === 0">Aucun ordinateur ne correspond à ces filtres.</p>
+    </div>
+
+</section>

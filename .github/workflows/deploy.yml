@@ -32,7 +32,7 @@ jobs:
       - run: npm ci
 
       - name: Build (base-href pour GitHub Pages)
-        run: npx ng build --configuration production --base-href /Projet_Frameworks/
+        run: npx ng build --configuration production --base-href /Projet_Angular_PCSHOP/
 
       - name: Fallback SPA + .nojekyll
         run: |
